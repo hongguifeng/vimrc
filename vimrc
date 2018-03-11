@@ -15,6 +15,8 @@
 " 跳到第n行：nG
 " 向下半页：ctrl + d 
 " 向上半页：ctrl + u
+" 到最后一行： G
+" 到第一行：gg
 "
 " % : 匹配括号移动，包括 (, {, [.
 " * 和 #:  匹配光标当前所在的单词，n往下搜索，N往上搜索
@@ -68,7 +70,7 @@ Bundle 'gmarik/vundle'
 Bundle 'bufexplorer.zip'
 Bundle 'scrooloose/nerdtree'
 Bundle 'taglist.vim'
-
+Bundle 'Yggdroot/LeaderF'
 filetype plugin indent on     " required!
 
 
