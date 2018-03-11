@@ -56,6 +56,7 @@ set tags+=./tags "add current directory's generated tags file
 
 " ----------------------------------------------
 " Bundle 插件管理配置
+" 使用 :BundleInstall 更新
 " ----------------------------------------------
 set nocompatible               " be iMproved
 filetype off                   " required!
@@ -65,12 +66,25 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required!
+
+" 管理插件的插件
 Bundle 'gmarik/vundle'
 
+" 打开文件历史文件列表，be 打开列表 bv水平 bs垂直
 Bundle 'bufexplorer.zip'
+
+" 文件树
 Bundle 'scrooloose/nerdtree'
+
+" tag list
 Bundle 'taglist.vim'
+
+" 加强搜索
 Bundle 'Yggdroot/LeaderF'
+
+" 漂亮的状态栏
+Bundle 'Lokaltog/vim-powerline'
+
 filetype plugin indent on     " required!
 
 
@@ -87,6 +101,6 @@ let Tlist_Exit_OnlyWindow=1                 " 如果Taglist窗口是最后一个
 let Tlist_File_Fold_Auto_Close=1            " 自动折叠
 let Tlist_WinWidth=30                       " 设置窗口宽度
 let Tlist_Process_File_Always=1 			" 实时更新tags
-let Tlist_Use_Right_Window=0                " 在右侧窗口中显示
+let Tlist_Use_Right_Window=0                " 在左侧窗口中显示
 
 colorscheme desert 
