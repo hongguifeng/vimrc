@@ -50,6 +50,8 @@ Bundle 'taglist.vim'
 " taglist.vim
 " ----------------------------------------------
 " 列出当前文件中的所有宏,全局变量, 函数名等
+" 使用:Tlist打开和关闭list
+
 let Tlist_Auto_Open=1						" 自动打开taglist窗口
 let Tlist_Ctags_Cmd='ctags' 				" 因为我们放在环境变量里，所以可以直接执行
 let Tlist_Show_One_File=1                   " 只显示当前文件的tags
