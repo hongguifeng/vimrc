@@ -1,10 +1,24 @@
 " vim 常用操作
+"
 " 复制n行：n + yy
 " 剪切n行：n + dd
 " 粘贴：p
+"
 " 撤销：u
 " 反撤销：ctrl + r
-
+"
+" 插入新的一行：o 往后 O 往前
+" 
+" 到行头: 0  到行尾：$ 
+" 到下一个单词开头：w 结尾：e
+"
+" 跳到第n行：nG
+" 向下半页：ctrl + d 
+" 向上半页：ctrl + u
+"
+" % : 匹配括号移动，包括 (, {, [.
+" * 和 #:  匹配光标当前所在的单词，n往下搜索，N往上搜索
+"
 set autoindent	" 设置自动缩进
 set smartindent " 设置智能对其方式
 
@@ -17,7 +31,6 @@ set cindent	" 使用c的自动缩进方式
 set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s "设置C/C++语言的具体缩进方式
 set showmatch " 设置匹配模式，显示匹配的括号
 set linebreak " 整词换行
-set whichwrap=b,s,<,>,[,] " 光标从行首和行末时可以跳到另一行去
 set mouse=a " Enable mouse usage (all modes) "使用鼠标
 set number " Enable line number "显示行号
 
