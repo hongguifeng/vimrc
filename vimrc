@@ -38,12 +38,25 @@ set smartcase	" 如果搜索模式里包含大写字符，不使用 ignorecase �
 set tags=tags
 set tags+=./tags "add current directory's generated tags file
 
+
+" ----------------------------------------------
+" Bundle 插件管理配置
+" ----------------------------------------------
+set nocompatible               " be iMproved
+filetype off                   " required!
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
 
 Bundle 'bufexplorer.zip'
 Bundle 'scrooloose/nerdtree'
 Bundle 'taglist.vim'
+
+filetype plugin indent on     " required!
 
 
 " ----------------------------------------------
