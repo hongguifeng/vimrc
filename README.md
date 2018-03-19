@@ -13,4 +13,7 @@
 
 1. 打开vim，输入 :BundleInstall 来安装其他插件
 
-
+# 安装中文help
+1. 到 http://vimcdoc.sourceforge.net/ 下载 “Latest platform independent tarball ……” 那项
+1. 解压： tar -xzvf vimcdoc-1.9.0.tar.gz
+1. 进入目录执行 ./vimcdoc.sh -i
