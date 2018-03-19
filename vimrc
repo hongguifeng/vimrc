@@ -4,6 +4,9 @@
 " 剪切n行：n + dd
 " 粘贴：p
 "
+" 删除光标之后的单词剩余部分: dw
+" 删除光标之后的该行剩余部分: d$
+" 
 " 撤销：u
 " 反撤销：ctrl + r
 "
@@ -17,6 +20,8 @@
 " 向上半页：ctrl + u
 " 到最后一行： G
 " 到第一行：gg
+" 
+" 返回上一次的位置：Ctrl + o 
 "
 " % : 匹配括号移动，包括 (, {, [.
 " * 和 #:  匹配光标当前所在的单词，n往下搜索，N往上搜索
@@ -50,6 +55,8 @@ set incsearch " 输入字符串就显示匹配点
 set hlsearch  " 高亮搜索
 set ignorecase	" 搜索模式里忽略大小写
 set smartcase	" 如果搜索模式里包含大写字符，不使用 ignorecase 选项
+
+colorscheme desert 
 
 " tag命令用法：
 " Ctrl＋］  跳到当前光标下单词的标签
@@ -87,7 +94,10 @@ Bundle 'taglist.vim'
 Bundle 'Yggdroot/LeaderF'
 
 " 漂亮的状态栏
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'vim-airline/vim-airline'
+
+" 模糊搜索神器
+Bundle 'junegunn/fzf'
 
 filetype plugin indent on     " required!
 
@@ -107,4 +117,29 @@ let Tlist_WinWidth=30                       " 设置窗口宽度
 let Tlist_Process_File_Always=1 			" 实时更新tags
 let Tlist_Use_Right_Window=0                " 在左侧窗口中显示
 
-colorscheme desert 
+" ----------------------------------------------
+"  fzf 颜色
+" ----------------------------------------------
+let g:fzf_colors =
+    \ { 'fg':      ['fg', 'Comment'],
+    \ 'bg':      ['bg', 'Normal'],
+    \ 'hl':      ['fg', 'Comment'],
+    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+    \ 'hl+':     ['fg', 'Statement'],
+    \ 'info':    ['fg', 'PreProc'],
+    \ 'border':  ['fg', 'Ignore'],
+    \ 'prompt':  ['fg', 'Conditional'],
+    \ 'pointer': ['fg', 'Exception'],
+    \ 'marker':  ['fg', 'Keyword'],
+    \ 'spinner': ['fg', 'Label'],
+    \ 'header':  ['fg', 'Comment'] }
+
+
+
+
+
+
+
+
+
