@@ -3,9 +3,9 @@
 1. sudo apt-get install ctags
 1. sudo apt-get install cscope
 
-1. git clone https://github.com/hongguifeng/vimrc.git ~/vim_config
+1. git clone https://github.com/hongguifeng/vimrc.git ~/vimrc
 
-1. 创建符号链接 ln -s ~/vim_config/vimrc ~/.vimrc
+1. 创建符号链接 ln -s ~/vimrc/vimrc ~/.vimrc
 
 1. 创建目录 mkdir ~/.vim
 
