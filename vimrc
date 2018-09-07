@@ -31,7 +31,10 @@
 "
 " 水平分割打开新文件：：split + 文件
 " 在新tab页面打开文件：：tabnew + 文件
+" :He 在下面分屏浏览目录
+" :Te tab页面形式目录浏览，gt下一个tab，gT上一个tab
 "
+
 set autoindent	" 设置自动缩进
 set smartindent " 设置智能对其方式
 
