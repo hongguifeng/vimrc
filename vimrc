@@ -111,7 +111,7 @@ Bundle 'vim-airline/vim-airline'
 " 模糊搜索神器,:FZF 进行搜索, Ctrl+j k 上下移动, Ctrl+x 水平分割打开
 " :Buffers 在打开的buffer文件中切换
 " 在命令行下，Ctrl+t 将选中的地址直接粘贴在命令行
-" Ctrl + c 直接进入目录, Ctrl + r 搜索历史命令
+" Alt + c 直接进入目录, Ctrl + r 搜索历史命令
 Bundle 'junegunn/fzf.vim'
 
 filetype plugin indent on     " required!
