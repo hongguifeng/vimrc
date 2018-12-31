@@ -105,9 +105,6 @@ Bundle 'scrooloose/nerdtree'
 " tag list
 Bundle 'taglist.vim'
 
-" 加强搜索
-Bundle 'Yggdroot/LeaderF'
-
 " 漂亮的状态栏
 Bundle 'vim-airline/vim-airline'
 
