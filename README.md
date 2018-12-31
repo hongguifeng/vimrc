@@ -9,7 +9,11 @@
 
 1. 创建目录 mkdir ~/.vim
 
-1. 安装Vundle git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+1. 安装 fzf:  git clone --depth - git@github.com:gunegunn/fzf.git ~/.fzf
+
+1. 执行命令：~/.fzf/install
+
+1. 安装Vundle git clone git@github.com:gmarik/vundle.git ~/.vim/bundle/vundle
 
 1. 打开vim，输入 :BundleInstall 来安装其他插件
 

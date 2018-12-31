@@ -87,6 +87,7 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.fzf/
 call vundle#rc()
 
 " let Vundle manage Vundle
@@ -110,8 +111,10 @@ Bundle 'Yggdroot/LeaderF'
 " 漂亮的状态栏
 Bundle 'vim-airline/vim-airline'
 
-" 模糊搜索神器
-Bundle 'junegunn/fzf'
+" 模糊搜索神器,:FZF 进行搜索, Ctrl+j k 上下移动
+" 在命令行下，Ctrl+t 将选中的地址直接粘贴在命令行
+" Ctrl + c 直接进入目录, Ctrl + r 搜索历史命令
+Bundle 'junegunn/fzf.vim'
 
 filetype plugin indent on     " required!
 
