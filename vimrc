@@ -69,6 +69,15 @@ set hlsearch  " 高亮搜索
 set ignorecase	" 搜索模式里忽略大小写
 set smartcase	" 如果搜索模式里包含大写字符，不使用 ignorecase 选项
 
+" vim 中打开文件时，先根据 fileencodings 探测文件的编码方式，
+" 然后把读到的文件转换成 encoding 编码保存在文件缓冲区中，
+" 再转换成 termencoding 指定的编码方式将字符写入终端。
+" 中文乱码主要是由于 fileencoding 探测不准确，
+" 或者编码转换时无法正常转换，如GBK转为ASCII就会导致中文乱码。
+set encoding=utf-8
+set termencoding=utf-8
+set fileencodings=utf-8,gbk,latin1
+
 colorscheme desert 
 
 " tag命令用法：
