@@ -9,7 +9,7 @@
 
 1. 创建目录 mkdir ~/.vim
 
-1. 安装 fzf:  git clone --depth - git@github.com:gunegunn/fzf.git ~/.fzf
+1. 安装 fzf:  git clone git@github.com:junegunn/fzf.git ~/.fzf
 
 1. 执行命令：~/.fzf/install
 
