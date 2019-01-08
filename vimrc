@@ -74,9 +74,9 @@ set smartcase	" 如果搜索模式里包含大写字符，不使用 ignorecase �
 " 再转换成 termencoding 指定的编码方式将字符写入终端。
 " 中文乱码主要是由于 fileencoding 探测不准确，
 " 或者编码转换时无法正常转换，如GBK转为ASCII就会导致中文乱码。
+set fileencodings=utf-8,gbk,latin1
 set encoding=utf-8
 set termencoding=utf-8
-set fileencodings=utf-8,gbk,latin1
 
 colorscheme desert 
 
@@ -84,6 +84,7 @@ colorscheme desert
 " ctags -R * 建立索引文件
 " Ctrl＋］  跳到当前光标下单词的标签
 " Ctrl＋O  返回上一个标签
+" :tselect 列出tag列表
 set tags=tags
 set tags+=./tags "add current directory's generated tags file
 
