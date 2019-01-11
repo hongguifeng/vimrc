@@ -42,6 +42,9 @@
 " :He 在下面分屏浏览目录
 " :Te tab页面形式目录浏览，gt下一个tab，gT上一个tab
 "
+" 批量注释：Ctrl + v 进入块选择，选中指定行；输入大写 I 进入插入模式，
+" 输入//，按两下 Esc
+"
 
 set autoindent	" 设置自动缩进
 set smartindent " 设置智能对其方式
@@ -85,46 +88,47 @@ colorscheme desert
 " Ctrl＋］  跳到当前光标下单词的标签
 " Ctrl＋O  返回上一个标签
 " :tselect 列出tag列表
-set tags=tags
-set tags+=./tags "add current directory's generated tags file
+" 设置中./.tags 表示当前目录，分号；表示查找不到向上递归，，.tags表示pwd的当前目录
+set tags=./.tags;,.tags
 
 
-" ----------------------------------------------
-" Bundle 插件管理配置
-" 使用 :BundleInstall 更新
-" ----------------------------------------------
-set nocompatible               " be iMproved
-filetype off                   " required!
+" -----------------------------------------------------------------------------
+" 插件管理工具 vim-plug
+" -----------------------------------------------------------------------------
+" 自动下载 vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-set rtp+=~/.vim/bundle/vundle/
-set rtp+=~/.fzf/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required!
-
-" 管理插件的插件
-Bundle 'gmarik/vundle'
-
-" 打开文件历史文件列表，be 打开列表 bv水平 bs垂直
-Bundle 'bufexplorer.zip'
-
-" 文件树
-Bundle 'scrooloose/nerdtree'
-
-" tag list
-Bundle 'taglist.vim'
-
-" 漂亮的状态栏
-Bundle 'vim-airline/vim-airline'
+" 插件开头，（括号中为插件下载位置），插件放下面
+call plug#begin('~/.vim/plugged')
 
 " 模糊搜索神器,:FZF 进行搜索, Ctrl+j k 上下移动, Ctrl+x 水平分割打开
-" :Buffers 在打开的buffer文件中切换
-" 在命令行下，Ctrl+t 将选中的地址直接粘贴在命令行
-" Alt + c 直接进入目录, Ctrl + r 搜索历史命令
-Bundle 'junegunn/fzf.vim'
+" :Buff 在打开的buffer文件中切换
+" 在命令行下，Ctrl+t 将选中的地址直接粘贴在命令行, Ctrl + r 搜索历史命令
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-filetype plugin indent on     " required!
+" Taglist 列出当前文件中的所有宏,全局变量, 函数名等
+Plug 'vim-scripts/taglist.vim'
+
+" 漂亮的状态栏
+Plug 'vim-airline/vim-airline'
+
+" 快速对齐插件
+Plug 'junegunn/vim-easy-align'
+
+" 插入自定义片段
+Plug 'SirVer/ultisnips' 
+
+" 文件树
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" 插件结尾，插件放上面
+call plug#end()
+
+
 
 
 " ----------------------------------------------
