@@ -1,18 +1,21 @@
 " -----------------------------------------------------------------------------
 " vim 常用操作
 " -----------------------------------------------------------------------------
-" 复制n行：n + yy
-" 剪切n行：n + dd
-" 复制n个单词：y + n + w
-" 剪切n个单词：d + n + w
+" 复制n行：n + yy   复制n个单词：y + n + w
+" 剪切n行：n + dd   剪切n个单词：d + n + w
 " 粘贴：p
+" 复制系统剪贴板："+y 
+" 粘贴系统剪贴板："+p
+"
+" 命令模式:下可以使用 Ctrl + r + Ctrl + w 来输入光标所在的单词
 "
 " 替换：:%s/old/new/gc  %表示全局,可替换为n,m表示n到m行，g表示整行，c表示询问是否替换
 "
-" 删除光标之后的单词剩余部分: dw
+" 删除光标之后的单词剩余部分: dw 删除光标所在单词：diw
 " 删除光标之后的该行剩余部分: d$
 " 删除冒号(括号)之间的所有字符：di + " (di + ))
 " 删除光标到某个字母之间的所有字符：dt + 字符 (df + 字符)
+" 插入模式下删除单词：Ctrl + w
 "
 " 撤销：u
 " 反撤销：ctrl + r
@@ -45,6 +48,8 @@
 "
 " 批量注释：Ctrl + v 进入块选择，选中指定行；输入大写 I 进入插入模式，
 " 输入//，按两下 Esc
+"
+" <leader> 键默认为 \
 " -----------------------------------------------------------------------------
 
 " -----------------------------------------------------------------------------
@@ -109,18 +114,42 @@ endif
 " 插件开头，（括号中为插件下载位置），插件放下面
 call plug#begin('~/.vim/plugged')
 
+" 一些快捷键
+" quickfix 下一项(:cn): ] + q 
+" quickfix 上一项(:cp): [ + q
+Plug 'tpope/vim-unimpaired'
+
+" 自动生成和管理 ctags 和 gtags
 Plug 'ludovicchabant/vim-gutentags'
+
+" 自动加载 gtags
+" 查找当前光标引用：<leader> + cs 
+" 查找当前光标字符：<leader> + ct
+" 查找当前光标定义：<leader> + cd
+" quickfix 窗口调到下一项： :cn
+" quickfix 窗口调到上一项： :cp
+Plug 'skywind3000/gutentags_plus'
 
 " 模糊搜索神器,:FZF 进行搜索, Ctrl+j k 上下移动, Ctrl+x 水平分割打开
 " :Buff 在打开的buffer文件中切换
 " 在命令行下，Ctrl+t 将选中的地址直接粘贴在命令行, Ctrl + r 搜索历史命令
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+Plug 'Valloric/YouCompleteMe'
 
 " Taglist 列出当前文件中的所有宏,全局变量, 函数名等
 Plug 'vim-scripts/taglist.vim'
 
 " 漂亮的状态栏
 Plug 'vim-airline/vim-airline'
+
+" 代码高亮
+Plug 'octol/vim-cpp-enhanced-highlight'
+
+" git 状态提醒
+" 显示左右对比 :SignifyDiff
+Plug 'mhinz/vim-signify'
 
 " 快速对齐插件
 Plug 'junegunn/vim-easy-align'
@@ -145,6 +174,17 @@ let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 " 所生成的数据文件的名称
 let g:gutentags_ctags_tagfile = '.tags'
 
+" 暂时屏蔽 ctags，gtags好像已经够用
+" let g:gutentags_modules = []
+" if executable('ctags')
+" 	let g:gutentags_modules += ['ctags']
+" endif
+
+" 开启 gtags 支持
+if executable('gtags-cscope') && executable('gtags')
+	let g:gutentags_modules = ['gtags_cscope']
+endif
+
 " 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
 let s:vim_tags = expand('~/.cache/tags')
 let g:gutentags_cache_dir = s:vim_tags
@@ -154,10 +194,36 @@ let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
 let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
+" 如果使用 universal ctags 需要增加下面一行
+" let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
+
+" 禁用 gutentags 自动加载 gtags 数据库的行为
+let g:gutentags_auto_add_gtags_cscope = 0
+
 " 检测 ~/.cache/tags 不存在就新建
 if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
+
+" 自动跳转到 quickfix 窗口.
+let g:gutentags_plus_switch = 1
+" -----------------------------------------------------------------------------
+
+
+" -----------------------------------------------------------------------------
+" gutentags_plus
+" -----------------------------------------------------------------------------
+" 关闭默认键盘映射
+let g:gutentags_plus_nomap = 1
+
+" 自定义键盘映射
+" 查找光标位置的引用
+noremap <silent> <leader>cs :GscopeFind s <C-R><C-W><cr>
+" 查找光标位置的函数定义
+noremap <silent> <leader>cd :GscopeFind g <C-R><C-W><cr>
+" 查找光标位置的字符串
+noremap <silent> <leader>ct :GscopeFind t <C-R><C-W><cr>
+
 " -----------------------------------------------------------------------------
 
 
@@ -197,7 +263,26 @@ let g:fzf_colors =
     \ 'header':  ['fg', 'Comment'] }
 " -----------------------------------------------------------------------------
 
+" -----------------------------------------------------------------------------
+"  YouCompleteMe 代码补全配置
+" -----------------------------------------------------------------------------
+" let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+let g:ycm_server_log_level = 'info'
+let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_complete_in_strings=1
+" let g:ycm_key_invoke_completion = '<c-z>'
+" set completeopt=menu,menuone
 
+" noremap <c-z> <NOP>
+
+let g:ycm_semantic_triggers =  {
+           \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+           \ 'cs,lua,javascript': ['re!\w{2}'],
+           \ }
+" -----------------------------------------------------------------------------
 
 
 
