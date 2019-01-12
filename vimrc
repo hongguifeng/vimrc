@@ -245,8 +245,12 @@ let Tlist_Use_Right_Window=0                " 在左侧窗口中显示
 
 
 " -----------------------------------------------------------------------------
-"  fzf 颜色
+"  fzf 配置
 " -----------------------------------------------------------------------------
+" 键盘映射
+noremap <silent> <leader>t :FZF<cr>
+noremap <silent> <leader>b :Buff<cr>
+" 颜色配置
 let g:fzf_colors =
     \ { 'fg':      ['fg', 'Comment'],
     \ 'bg':      ['bg', 'Normal'],
