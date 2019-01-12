@@ -1,7 +1,11 @@
 安装vim
 =
 ```
-sudo apt-get install vim vim-scripts vim-doc
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+sudo apt install vim
+//支持系统剪贴板
+sudo apt-get install vim-scripts vim-gtk vim-gnome vim-doc
 ```
 安装 ctags
 =

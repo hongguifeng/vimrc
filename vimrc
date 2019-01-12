@@ -136,7 +136,12 @@ Plug 'skywind3000/gutentags_plus'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" 自动补全插件
 Plug 'Valloric/YouCompleteMe'
+
+" 代码检查插件
+" Plug 'neomake/neomake'
+" Plug 'w0rp/ale'
 
 " Taglist 列出当前文件中的所有宏,全局变量, 函数名等
 Plug 'vim-scripts/taglist.vim'
@@ -232,6 +237,7 @@ noremap <silent> <leader>ct :GscopeFind t <C-R><C-W><cr>
 " -----------------------------------------------------------------------------
 " 列出当前文件中的所有宏,全局变量, 函数名等
 " 使用:Tlist打开和关闭list
+noremap <silent> <leader>w :Tlist<cr>
 
 let Tlist_Auto_Open=1                       " 自动打开taglist窗口
 let Tlist_Ctags_Cmd='ctags'                 " 因为我们放在环境变量里，所以可以直接执行
@@ -289,7 +295,42 @@ let g:ycm_semantic_triggers =  {
 " -----------------------------------------------------------------------------
 
 
+" -----------------------------------------------------------------------------
+"  airline 代码补全配置
+" -----------------------------------------------------------------------------
+"安装字体后必须设置
+"let g:airline_powerline_fonts = 1
+""unicode symbols
+"let g:airline_left_sep = '▶'
+"let g:airline_left_alt_sep = '❯'
+"let g:airline_right_sep = '◀'
+"let g:airline_right_alt_sep = '❮'
+"let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.branch = '⎇'
+
+" -----------------------------------------------------------------------------
 
 
 
-
+" let g:ale_sign_column_always = 1
+" let g:ale_linters_explicit = 1
+" let g:ale_completion_delay = 500
+" let g:ale_echo_delay = 20
+" let g:ale_lint_delay = 500
+" let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+" let g:ale_lint_on_text_changed = 'normal'
+" let g:ale_lint_on_insert_leave = 1
+" let g:airline#extensions#ale#enabled = 1
+" 
+" " let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+" " let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+" let g:ale_c_cppcheck_options = '--force --enable=information --suppress=missingIncludeSystem'
+" let g:ale_cpp_cppcheck_options = ''
+" 
+" "使用clang对c和c++进行语法检查，对python使用pylint进行语法检查
+" let g:ale_linters = {
+" \   'c++': ['gcc'],
+" \   'c': ['cppcheck'],
+" \}
+" 
+" 
