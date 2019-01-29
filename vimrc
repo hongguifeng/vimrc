@@ -29,6 +29,7 @@
 " 到第一行：gg
 " 
 " 返回上一次的位置：Ctrl + o 
+" 前进到下一个位置: Ctrl + i
 "
 " 到行头: 0  到行尾：$
 " 到下一个单词开头：w 结尾：e
@@ -276,7 +277,7 @@ let g:fzf_colors =
 " -----------------------------------------------------------------------------
 "  YouCompleteMe 代码补全配置
 " -----------------------------------------------------------------------------
-" let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 let g:ycm_server_log_level = 'info'
@@ -284,7 +285,7 @@ let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_strings=1
 " let g:ycm_key_invoke_completion = '<c-z>'
-" set completeopt=menu,menuone
+set completeopt=menu,menuone
 
 " noremap <c-z> <NOP>
 
