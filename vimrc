@@ -216,6 +216,7 @@ endif
 
 " 自动跳转到 quickfix 窗口.
 let g:gutentags_plus_switch = 1
+" 调试命令 使用 :GutentagsToggleTrace 开启调试，:message 显示详细信息
 let g:gutentags_define_advanced_commands = 1
 " -----------------------------------------------------------------------------
 
