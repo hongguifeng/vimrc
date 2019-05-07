@@ -71,7 +71,7 @@ set softtabstop=4	" 设置软tab宽度
 set shiftwidth=4	" 缩进使用4个空格
 " set expandtab    " 将Tab键转换为空格
 set list			" 显示tab
-set listchars=tab:>-,trail:- " 设置tab和行尾空格符号
+set listchars=tab:>\ ,trail:- " 设置tab和行尾空格符号
 
 set cindent	" 使用c的自动缩进方式
 set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s "设置C/C++语言的具体缩进方式
