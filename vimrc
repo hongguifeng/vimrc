@@ -178,8 +178,14 @@ Plug 'SirVer/ultisnips'
 " 文件树
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
+" 下划线高亮
+Plug 'itchyny/vim-cursorword'
+
 " 插件结尾，插件放上面
 call plug#end()
+" :PlugUpdate 更新插件
+" :PlugInstall 安装插件
+" :PlugClean 清除插件
 "------------------------------------------------------------------------------
 
 
