@@ -21,13 +21,17 @@
 " 反撤销：ctrl + r
 "
 " 插入新的一行：o 往后 O 往前
-" 
+"
 " 跳到第n行：nG
 " 向下半页：ctrl + d 
 " 向上半页：ctrl + u
 " 到最后一行： G
 " 到第一行：gg
-" 
+"
+" 光标移动到屏幕顶部：H 中间：M 底部：L
+" 光标不变,下拉屏幕：Ctrl + e 上拉：Ctrl + y
+" 光标所在行移动到屏幕顶部：zt 中间：zz 底部：zb
+"
 " 返回上一次的位置：Ctrl + o 
 " 前进到下一个位置: Ctrl + i
 "
@@ -249,6 +253,11 @@ noremap <silent> <leader>cs :GscopeFind s <C-R><C-W><cr>
 noremap <silent> <leader>cd :GscopeFind g <C-R><C-W><cr>
 " 查找光标位置的字符串
 noremap <silent> <leader>ct :GscopeFind t <C-R><C-W><cr>
+
+" 使用无道查找单词
+noremap <silent> <leader>wd :!wd <C-R><C-W><cr>
+" 分屏打开本文件
+noremap <silent> <leader>rc :sp ~/.vimrc <cr>
 
 " -----------------------------------------------------------------------------
 
