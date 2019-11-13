@@ -127,6 +127,8 @@ colorscheme desert
 noremap <silent> <leader>wd :!wd <C-R><C-W><cr>
 " 分屏打开本文件: \rc
 noremap <silent> <leader>rc :sp ~/.vimrc <cr>
+" 分屏建立新shell
+noremap <silent> <leader>n :ter <cr>
 " 上下翻页
 noremap <silent> <C-j> <C-d>
 noremap <silent> <C-k> <C-u>
@@ -213,6 +215,12 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " 下划线高亮
 Plug 'itchyny/vim-cursorword'
+
+" markdown
+" 开启预览：MarkdownPreview
+" 停止预览：MarkdownPreviewStop
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
 
 " 插件结尾，插件放上面
 call plug#end()
