@@ -224,6 +224,9 @@ Plug 'itchyny/vim-cursorword'
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
 
+" 改变 ctrl+o 和 ctrl+i 跳转逻辑，更符合正常跳转逻辑
+Plug 'epheien/myjl'
+
 " 插件结尾，插件放上面
 call plug#end()
 "------------------------------------------------------------------------------
