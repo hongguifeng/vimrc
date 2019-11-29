@@ -286,12 +286,14 @@ let g:gutentags_define_advanced_commands = 1
 let g:gutentags_plus_nomap = 1
 
 " 自定义键盘映射
-" 查找光标位置的引用
+" 查找光标位置的引用 \cs
 noremap <silent> <leader>cs :GscopeFind s <C-R><C-W><cr>
-" 查找光标位置的函数定义
+" 查找光标位置的函数定义 \cd
 noremap <silent> <leader>cd :GscopeFind g <C-R><C-W><cr>
-" 查找光标位置的字符串
+" 查找光标位置的字符串 \ct
 noremap <silent> <leader>ct :GscopeFind t <C-R><C-W><cr>
+" 自定义查找定义 \cf
+noremap <leader>cf :GscopeFind g 
 
 " -----------------------------------------------------------------------------
 
