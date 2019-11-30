@@ -134,8 +134,6 @@ noremap <silent> <leader>n :ter <cr>
 " 上下翻页
 " noremap <silent> <C-j> <C-d>
 " noremap <silent> <C-k> <C-u>
-nnoremap <silent> <C-j> :<C-U>call smoothie#downwards() <CR>
-nnoremap <silent> <C-k> :<C-U>call smoothie#upwards()  <CR>
 
 " tag命令用法：
 " Ctrl＋］  跳到当前光标下单词的标签
@@ -229,6 +227,7 @@ Plug 'iamcco/markdown-preview.vim'
 " 改变 ctrl+o 和 ctrl+i 跳转逻辑，更符合正常跳转逻辑
 Plug 'epheien/myjl'
 
+" 上下翻页时顺滑滚动
 Plug 'psliwka/vim-smoothie'
 
 " 插件结尾，插件放上面
@@ -367,27 +366,11 @@ let g:ycm_semantic_triggers =  {
 " -----------------------------------------------------------------------------
 
 " -----------------------------------------------------------------------------
-"  ale 代码代码检查配置
+" vim-smoothie 插件配置
 " -----------------------------------------------------------------------------
-" let g:ale_sign_column_always = 1
-" let g:ale_linters_explicit = 1
-" let g:ale_completion_delay = 500
-" let g:ale_echo_delay = 20
-" let g:ale_lint_delay = 500
-" let g:ale_echo_msg_format = '[%linter%] %code: %%s'
-" let g:ale_lint_on_text_changed = 'normal'
-" let g:ale_lint_on_insert_leave = 1
-" let g:airline#extensions#ale#enabled = 1
-" 
-" " let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
-" " let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
-" let g:ale_c_cppcheck_options = '--force --enable=information --suppress=missingIncludeSystem'
-" let g:ale_cpp_cppcheck_options = ''
-" 
-" "使用clang对c和c++进行语法检查，对python使用pylint进行语法检查
-" let g:ale_linters = {
-" \   'c++': ['gcc'],
-" \   'c': ['cppcheck'],
-" \}
-" 
-" 
+"向下翻半页
+nnoremap <silent> <C-j> :<C-U>call smoothie#downwards() <CR>
+"向上翻半页
+nnoremap <silent> <C-k> :<C-U>call smoothie#upwards()  <CR>
+" -----------------------------------------------------------------------------
+"
