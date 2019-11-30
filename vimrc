@@ -132,8 +132,10 @@ noremap <silent> <leader>rc :sp ~/.vimrc <cr>
 " 分屏建立新shell
 noremap <silent> <leader>n :ter <cr>
 " 上下翻页
-noremap <silent> <C-j> <C-d>
-noremap <silent> <C-k> <C-u>
+" noremap <silent> <C-j> <C-d>
+" noremap <silent> <C-k> <C-u>
+nnoremap <silent> <C-j> :<C-U>call smoothie#downwards() <CR>
+nnoremap <silent> <C-k> :<C-U>call smoothie#upwards()  <CR>
 
 " tag命令用法：
 " Ctrl＋］  跳到当前光标下单词的标签
@@ -226,6 +228,8 @@ Plug 'iamcco/markdown-preview.vim'
 
 " 改变 ctrl+o 和 ctrl+i 跳转逻辑，更符合正常跳转逻辑
 Plug 'epheien/myjl'
+
+Plug 'psliwka/vim-smoothie'
 
 " 插件结尾，插件放上面
 call plug#end()
