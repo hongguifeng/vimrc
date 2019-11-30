@@ -313,6 +313,9 @@ let Tlist_File_Fold_Auto_Close=1            " 自动折叠
 let Tlist_WinWidth=30                       " 设置窗口宽度
 let Tlist_Process_File_Always=1             " 实时更新tags
 let Tlist_Use_Right_Window=0                " 在左侧窗口中显示
+
+"加快vim光标移动时taglist光标更新速度
+autocmd CursorMoved * silent! TlistHighlightTag
 " -----------------------------------------------------------------------------
 
 " -----------------------------------------------------------------------------
