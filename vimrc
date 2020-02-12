@@ -97,6 +97,7 @@ set tabstop=4	" 设置tab键宽度
 set softtabstop=4	" 设置软tab宽度
 set shiftwidth=4	" 缩进使用4个空格
 " set expandtab    " 将Tab键转换为空格
+" set nolist 不显示 tab 和行尾空格
 set list			" 显示tab
 set listchars=tab:>\ ,trail:- " 设置tab和行尾空格符号
 
