@@ -57,3 +57,16 @@ python3 install.py --clang-completer
 tar -xzvf vimcdoc-2.1.0.tar.gz
 ./vimcdoc.sh -i
 ```
+安装 sdcv 词典
+=
+```
+sudo apt install sdcv
+mkdir ~/.stardict/dic
+cp stardict-langdao-ec-gb-2.4.2.tar.bz2 ~/.stardict/dic
+cd ~/.stardict/dic
+tar xvf stardict-langdao-ec-gb-2.4.2.tar.bz2
+```
+
+
+
+

@@ -131,8 +131,8 @@ set termencoding=utf-8
 colorscheme desert 
 
 " <leader> 键默认为 \
-" 使用无道查找单词: \wd
-noremap <silent> <leader>wd :!wd <C-R><C-W><cr>
+" 使用sdcv查找单词: \sd
+noremap <silent> <leader>sd :!sdcv <C-R><C-W><cr>
 " 分屏打开本文件: \rc
 noremap <silent> <leader>rc :sp ~/.vimrc <cr>
 " 分屏建立新shell
