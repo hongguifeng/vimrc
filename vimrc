@@ -110,6 +110,7 @@ set number " Enable line number "显示行号
 
 set laststatus=2 " 总显示最后一个窗口的状态行；
 set ruler " 标尺，用于显示光标位置的行号和列号，逗号分隔。
+" set colorcolumn=81 "设置每行字符超过80长度提示
 
 set showcmd " 命令行显示输入的命令
 set showmode " 命令行显示vim当前模式
@@ -124,11 +125,14 @@ set smartcase	" 如果搜索模式里包含大写字符，不使用 ignorecase �
 " 再转换成 termencoding 指定的编码方式将字符写入终端。
 " 中文乱码主要是由于 fileencoding 探测不准确，
 " 或者编码转换时无法正常转换，如GBK转为ASCII就会导致中文乱码。
-set fileencodings=utf-8,gbk,latin1
+set fileencodings=utf-8,gb18030,gbk,latin1
+" set fileencoding=gb18030
+set fileencoding=utf-8
 set encoding=utf-8
 set termencoding=utf-8
 
-colorscheme desert 
+colorscheme desert
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 " <leader> 键默认为 \
 " 使用sdcv查找单词: \sd
