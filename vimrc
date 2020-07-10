@@ -5,7 +5,7 @@
 "----------------------------------------------------------------------
 " 复制n行：n + yy   复制n个单词：y + n + w
 " 剪切n行：n + dd   剪切n个单词：d + n + w
-" 粘贴：p
+" 粘贴：光标后：p 光标前：P
 " 复制系统剪贴板："+y
 " 粘贴系统剪贴板："+p
 "
@@ -14,7 +14,7 @@
 " 替换：:%s/old/new/gc  %表示全局,可替换为n,m表示n到m行，g表示整行，c表示询问是否替换
 "
 " 删除光标之后的单词剩余部分: dw 删除光标所在单词：diw
-" 删除光标之后的该行剩余部分: d$
+" 删除光标之后的该行剩余部分: D
 " 删除冒号(括号)之间的所有字符：di + " (di + ))
 " 删除光标到某个字母之间的所有字符：dt + 字符 (df + 字符)
 " 插入模式下删除单词：Ctrl + w
@@ -96,7 +96,7 @@ set smartindent " 设置智能对其方式
 set tabstop=4	" 设置tab键宽度
 set softtabstop=4	" 设置软tab宽度
 set shiftwidth=4	" 缩进使用4个空格
-" set expandtab    " 将Tab键转换为空格
+set expandtab    " 将Tab键转换为空格
 " set nolist 不显示 tab 和行尾空格
 set list			" 显示tab
 set listchars=tab:>\ ,trail:- " 设置tab和行尾空格符号
@@ -110,7 +110,7 @@ set number " Enable line number "显示行号
 
 set laststatus=2 " 总显示最后一个窗口的状态行；
 set ruler " 标尺，用于显示光标位置的行号和列号，逗号分隔。
-" set colorcolumn=81 "设置每行字符超过80长度提示
+set colorcolumn=81 "设置每行字符超过80长度提示
 
 set showcmd " 命令行显示输入的命令
 set showmode " 命令行显示vim当前模式
@@ -131,16 +131,23 @@ set fileencoding=utf-8
 set encoding=utf-8
 set termencoding=utf-8
 
+" 设置主题颜色
 colorscheme desert
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 " <leader> 键默认为 \
 " 使用sdcv查找单词: \sd
 noremap <silent> <leader>sd :!sdcv <C-R><C-W><cr>
+
 " 分屏打开本文件: \rc
 noremap <silent> <leader>rc :sp ~/.vimrc <cr>
+
 " 分屏建立新shell
 noremap <silent> <leader>n :ter <cr>
+
+" 关闭/开启 辅助线
+noremap <silent> <leader>y :IndentLinesToggle <cr> :LeadingSpaceToggle <cr> :set invlist <cr> :set invnumber <cr> :Tlist <cr>
+
 " 上下翻页
 " noremap <silent> <C-j> <C-d>
 " noremap <silent> <C-k> <C-u>
@@ -228,6 +235,8 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " 下划线高亮
 Plug 'itchyny/vim-cursorword'
 
+"Plug 'dominikduda/vim_current_word'
+
 " markdown
 " 开启预览：MarkdownPreview
 " 停止预览：MarkdownPreviewStop
@@ -239,6 +248,12 @@ Plug 'epheien/myjl'
 
 " 上下翻页时顺滑滚动
 Plug 'psliwka/vim-smoothie'
+
+" 缩进参考线
+Plug 'Yggdroot/indentLine'
+
+" 括号自动补全
+Plug 'vim-scripts/delimitMate.vim'
 
 " 插件结尾，插件放上面
 call plug#end()
@@ -359,15 +374,18 @@ let g:fzf_colors =
 " -----------------------------------------------------------------------------
 "  YouCompleteMe 代码补全配置
 " -----------------------------------------------------------------------------
-let g:ycm_add_preview_to_completeopt = 0
+" let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 let g:ycm_server_log_level = 'info'
 let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_strings=1
+let g:ycm_max_num_candidates = 5  " 候选数量
+let g:ycm_add_preview_to_completeopt = 0
+" let g:ycm_auto_hover = '' " 自动弹出函数注释
 " let g:ycm_key_invoke_completion = '<c-z>'
-set completeopt=menu,menuone
+" set completeopt=menu,menuone,preview
 
 " noremap <c-z> <NOP>
 
@@ -384,5 +402,16 @@ let g:ycm_semantic_triggers =  {
 nnoremap <silent> <C-j> :<C-U>call smoothie#downwards() <CR>
 "向上翻半页
 nnoremap <silent> <C-k> :<C-U>call smoothie#upwards()  <CR>
+" -----------------------------------------------------------------------------
+"
+
+" -----------------------------------------------------------------------------
+
+" -----------------------------------------------------------------------------
+" indentLine 插件配置
+" -----------------------------------------------------------------------------
+"
+let g:indentLine_leadingSpaceEnabled=1
+"
 " -----------------------------------------------------------------------------
 "
