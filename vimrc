@@ -9,6 +9,8 @@
 " 复制系统剪贴板："+y
 " 粘贴系统剪贴板："+p
 "
+" 防止粘贴排版错乱：set paste/nopaste
+"
 " 命令模式:下可以使用 Ctrl + r + Ctrl + w 来输入光标所在的单词
 "
 " 替换：:%s/old/new/gc  %表示全局,可替换为n,m表示n到m行，g表示整行，c表示询问是否替换
@@ -145,7 +147,7 @@ noremap <silent> <leader>rc :sp ~/.vimrc <cr>
 " 分屏建立新shell
 noremap <silent> <leader>n :ter <cr>
 
-" 关闭/开启 辅助线
+" 关闭/开启 辅助线 方便复制粘贴
 noremap <silent> <leader>y :IndentLinesToggle <cr> :LeadingSpaceToggle <cr> :set invlist <cr> :set invnumber <cr> :Tlist <cr>
 
 " 上下翻页
