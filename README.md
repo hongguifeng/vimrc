@@ -20,8 +20,10 @@ sudo make install # may require extra privileges depending on where to install
 安装 gtags
 =
 ```
+sudo apt-get install libncurses5-dev gcc
 wget https://ftp.gnu.org/pub/gnu/global/global-6.6.3.tar.gz
 tar -xzvf global-6.6.3.tar.gz
+cd global-6.6.3
 ./configure
 make  
 sudo make install
