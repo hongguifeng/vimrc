@@ -150,6 +150,12 @@ noremap <silent> <leader>n :ter <cr>
 " 关闭/开启 辅助线 方便复制粘贴
 noremap <silent> <leader>y :IndentLinesToggle <cr> :LeadingSpaceToggle <cr> :set invlist <cr> :set invnumber <cr> :Tlist <cr>
 
+" 以十六进制 hex 形式打开
+noremap <silent> <leader>h :%!xxd <cr>
+
+" 恢复为字符串形式打开
+noremap <silent> <leader>hh :%!xxd -r <cr>
+
 " 上下翻页
 " noremap <silent> <C-j> <C-d>
 " noremap <silent> <C-k> <C-u>
@@ -164,6 +170,18 @@ set tags=./.tags;,.tags
 
 " 自动退出 quickfix 窗口
 autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
+
+" 进入插入模式下的光标形状
+let &t_SI.="\e[5 q"
+" 进入替换模式下的光标形状
+let &t_SR.="\e[3 q"
+" 从插入模式或替换模式下退出，进入普通模式后的光标形状
+let &t_EI.="\e[1 q"
+" 进入vim时，设置普通模式下的光标形状
+autocmd VimEnter * silent !echo -ne "\e[1 q"
+" 离开vim后，恢复shell模式下的光标形状
+autocmd VimLeave * silent !echo -ne "\e[5 q"
+
 
 " -----------------------------------------------------------------------------
 " 插件管理工具 vim-plug
