@@ -224,7 +224,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " 自动补全插件
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', {'on' : []}
+
 
 " 代码检查插件
 " Plug 'neomake/neomake'
@@ -241,7 +242,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 
 " git 状态提醒
 " 显示左右对比 :SignifyDiff
-Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify', {'on': []}
 
 " 快速对齐插件
 Plug 'junegunn/vim-easy-align'
@@ -278,6 +279,17 @@ Plug 'vim-scripts/delimitMate.vim'
 " 插件结尾，插件放上面
 call plug#end()
 "------------------------------------------------------------------------------
+
+augroup load_ycm
+    autocmd!
+    autocmd InsertEnter * call plug#load('YouCompleteMe') | autocmd! load_ycm
+augroup END
+
+call timer_start(500, 'LoadPlug')
+
+function! LoadPlug(timer) abort
+    call plug#load('vim-signify')
+endfunction
 
 
 " -----------------------------------------------------------------------------
@@ -406,6 +418,8 @@ let g:ycm_add_preview_to_completeopt = 0
 " let g:ycm_auto_hover = '' " 自动弹出函数注释
 " let g:ycm_key_invoke_completion = '<c-z>'
 " set completeopt=menu,menuone,preview
+set completeopt=menu,menuone
+let g:ycm_add_preview_to_completeopt = 0
 
 " noremap <c-z> <NOP>
 
