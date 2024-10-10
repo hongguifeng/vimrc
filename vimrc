@@ -125,6 +125,8 @@ set hlsearch  " 高亮搜索
 set ignorecase	" 搜索模式里忽略大小写
 set smartcase	" 如果搜索模式里包含大写字符，不使用 ignorecase 选项
 
+set backspace=indent,eol,start "允许删除空行
+
 " vim 中打开文件时，先根据 fileencodings 探测文件的编码方式，
 " 然后把读到的文件转换成 encoding 编码保存在文件缓冲区中，
 " 再转换成 termencoding 指定的编码方式将字符写入终端。
@@ -254,6 +256,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'SirVer/ultisnips' 
 
 " 文件树
+" :NERDTree 开启文件列表
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " 下划线高亮
@@ -278,6 +281,8 @@ Plug 'Yggdroot/indentLine'
 
 " 括号自动补全
 Plug 'vim-scripts/delimitMate.vim'
+
+Plug 'airblade/vim-gitgutter'
 
 " 插件结尾，插件放上面
 call plug#end()
